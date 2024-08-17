@@ -7,12 +7,15 @@ package ex4javapoonif;
 import java.util.Scanner;
 
 public class Service {
+    Scanner sc =  new Scanner(System.in);
+    Nif nif = new Nif();
     
-    public void start(Scanner sc, long nif) {
+    public void start() {
+        
         System.out.println("Enter your DNI");
         long dni = sc.nextLong();
         
-        String[] character = new String[21];
+        nif.createNif(dni);
         
     }
 

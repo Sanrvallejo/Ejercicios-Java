@@ -54,11 +54,18 @@ public class Nif {
         for (int i = 0; i < l.length; i++) {
             if (dni % 2 == i ) {
                 this.letra = l[i];
+                showNif(letra);
+                break;
             } else {
                 continue;
             }
         }
         
     };
+    
+    public void showNif(char l) {
+        this.nif = dni + "-" + letra;
+        System.out.println(this.nif);
+    }
     
 }

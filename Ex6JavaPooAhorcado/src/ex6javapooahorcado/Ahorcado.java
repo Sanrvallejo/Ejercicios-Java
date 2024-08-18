@@ -16,8 +16,11 @@ public class Ahorcado {
         return word;
     }
 
-    public void setWord(String[] word) {
-        this.word = word;
+    public void setWord(String word) {
+        this.word = new String [word.length()];
+        for (int i = 0; i < word.length(); i++) {
+            this.word[i] = String.valueOf(word.charAt(i));
+        }
     }
 
     public char getFoundLett() {

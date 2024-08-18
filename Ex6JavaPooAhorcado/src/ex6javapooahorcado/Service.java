@@ -14,7 +14,7 @@ public class Service {
         //set word vector
         System.out.println("Enter a word to guess");
         word = sc.nextLine();
-        game.setWord(word);
+        game.setWord(word.toLowerCase());
         
         //set attempts
         System.out.println("Enter allowed attempts");
@@ -25,5 +25,15 @@ public class Service {
     
     public void showLength() {
         System.out.println("Length of the word to guess" + game.getWord().length);
+    }
+    
+    public void searchLetter(String l){
+        for (String letter : game.getWord()) {
+            if (l.equalsIgnoreCase(letter)) {
+                //foundedLetter(l);
+            }else {
+                continue;
+            }
+        }
     }
 }

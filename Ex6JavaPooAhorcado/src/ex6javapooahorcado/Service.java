@@ -22,4 +22,8 @@ public class Service {
         game.setAttempts(attempts);
     }
     
+    
+    public void showLength() {
+        System.out.println("Length of the word to guess" + game.getWord().length);
+    }
 }

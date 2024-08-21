@@ -81,6 +81,7 @@ public class Service {
     
     public void game() {
         String letter;
+        String guessedWord = "";
         
         //game settings:
         System.out.println("Game settings: Don't let the other player see these settings");
@@ -90,7 +91,8 @@ public class Service {
         System.out.printf("The word to guess has %d letters and you have %d attempts %n", 
                 game.getWord().length, game.getAttempts());
         
-        while (game.getAttempts() > 0) {            
+        while (game.getAttempts() > 0) {
+            guessedWord = "";
             System.out.println("Please, enter a letter");
             letter = sc.nextLine();
             
@@ -99,8 +101,13 @@ public class Service {
             }else {
                 System.out.println("Wrong guess");
             }
-            
+
+            for (String el : wordCopy) {
+                guessedWord += " " + el;
+            }
+            System.out.println(guessedWord);
             System.out.printf("Attempts: %d%n",game.getAttempts());
+            showLength();
             
             if(areEquals(wordCopy, game.getWord())) break;
             

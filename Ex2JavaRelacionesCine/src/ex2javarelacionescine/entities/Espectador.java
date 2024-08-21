@@ -1,11 +1,11 @@
 package ex2javarelacionescine.entities;
 
 public class Espectador {
-    private double dinero;
     private String nombre;
     private int edad;
+    private double dinero;
 
-    public Espectador(double dinero, String nombre, int edad) {
+    public Espectador(String nombre, int edad, double dinero) {
         this.dinero = dinero;
         this.nombre = nombre;
         this.edad = edad;
@@ -37,7 +37,10 @@ public class Espectador {
 
     @Override
     public String toString() {
-        return "Espectador{" + "dinero=" + dinero + ", nombre=" + nombre + ", edad=" + edad + '}';
+        return "Espectador:" + ""
+                + "\nDinero:" + dinero + ","
+                + "\nNombre:" + nombre + ","
+                + "\nEdad:" + edad;
     }
     
     

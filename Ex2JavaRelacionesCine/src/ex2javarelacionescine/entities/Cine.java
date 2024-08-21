@@ -11,7 +11,7 @@ public class Cine {
 
     public Cine(Pelicula pelicula, double precio) {
         this.pelicula = pelicula;
-        sala = new String[8][6];
+        sala = new String[6][8];
         this.precio = precio;
     }
 
@@ -41,7 +41,10 @@ public class Cine {
 
     @Override
     public String toString() {
-        return "Cine{" + "pelicula=" + pelicula + ", sala=" + sala + ", precio=" + precio + '}';
+        return "Cine:" + 
+                "\nPelicula:" + pelicula + 
+                "\nSala=" + sala + 
+                "\nPrecio=" + precio;
     }
     
     

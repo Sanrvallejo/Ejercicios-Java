@@ -28,9 +28,17 @@ public class Cine {
     }
 
     public void setSala(String[][] sala) {
-        this.sala = sala;
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 6; j++) {
+                this.sala[i][j] = sala[i][j];
+            }
+        }
     }
 
+    public String getElementSala(int i, int j) {
+        return sala[i][j];
+    }
+    
     public double getPrecio() {
         return precio;
     }

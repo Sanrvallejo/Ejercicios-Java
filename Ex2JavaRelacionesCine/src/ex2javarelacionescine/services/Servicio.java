@@ -53,20 +53,18 @@ public class Servicio {
         pelicula = new Pelicula("Harry Pooter", edadMinima, nRandom.nextInt(240));
     }
     
-    public void llenarSala(String[][] s) {
+    public void llenarSala() {
+        String[][] s = new String[6][8];
         String fila = "";
         String arrayCompleto = "";
         
-        //filas
-        int k = 0;
-        
-        //columnas
-        int j = 0;
-        
         //aquí se asignan los puestos aleatoriamente con ayuda de random
         for (int i = 0; i < 43; i++) {
-            k = nRandom.nextInt(8);
-            j = nRandom.nextInt(6);
+            //filas 
+            int k = nRandom.nextInt(8);
+            
+            //columnas
+            int j = nRandom.nextInt(6);
             
             //convertir J a letra en el string
             switch (j) {
@@ -107,6 +105,9 @@ public class Servicio {
             } 
         }
         
+        //llenar sala del objeto cine
+        cine.setSala(s);
+        
         //construir columna
         for (int i = 7; i >= 0; i--) {
             //reestablecer string para escribir siguiente fila
@@ -127,5 +128,35 @@ public class Servicio {
         System.out.println(arrayCompleto);
     }
     
-    
+    public boolean verificarSilla(int i, char k) {
+         int j = 0;
+        
+        switch (k) {
+            case 'A':
+                j = 5;
+                break;
+            case 'B':
+                j = 4;
+                break;
+            case 'C':
+                j = 3;
+                break;
+            case 'D':
+                j = 2;
+                break;
+            case 'E':
+                j = 1;
+                break;
+            case 'F':
+                j = 0;
+                break;
+            default:
+                return true;
+        }
+        if (cine.getElementSala(i-1, j).equalsIgnoreCase("E"+(i)+"X")) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

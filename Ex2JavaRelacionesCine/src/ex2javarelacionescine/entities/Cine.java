@@ -50,9 +50,9 @@ public class Cine {
     @Override
     public String toString() {
         return "Cine:" + 
-                "\nPelicula:" + pelicula + 
-                "\nSala=" + sala + 
-                "\nPrecio=" + precio;
+                "\nPelicula: " + pelicula + 
+                //"\nSala=" + sala + 
+                "\nPrecio: " + precio;
     }
     
     

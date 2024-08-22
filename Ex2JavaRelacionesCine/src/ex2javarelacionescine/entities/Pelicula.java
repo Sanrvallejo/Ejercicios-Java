@@ -42,9 +42,9 @@ public class Pelicula {
     @Override
     public String toString() {
         return "Pelicula:" + 
-                "\nTítulo:" + titulo +
-                "\nEdad mínima:" + edadMin + 
-                "\nDuración:" + duracion;
+                "\nTítulo: " + titulo +
+                "\nEdad mínima: " + edadMin + 
+                "\nDuración: " + duracion;
     }
     
     

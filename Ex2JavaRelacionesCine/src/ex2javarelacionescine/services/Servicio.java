@@ -58,14 +58,15 @@ public class Servicio {
         String[][] s = new String[8][6];
         String fila = "";
         String arrayCompleto = "";
+        int k, j;
         
         //aquí se asignan los puestos aleatoriamente con ayuda de random
         for (int i = 0; i < 43; i++) {
             //filas 
-            int k = nRandom.nextInt(8);
+            k = nRandom.nextInt(8);
             
             //columnas
-            int j = nRandom.nextInt(6);
+            j = nRandom.nextInt(6);
             
             //convertir J a letra en el string
             switch (j) {
@@ -106,6 +107,7 @@ public class Servicio {
             } 
         }
         
+        //mostrar sala
         //construir columna
         for (int i = 7; i >= 0; i--) {
             //reestablecer string para escribir siguiente fila
@@ -114,6 +116,7 @@ public class Servicio {
             //armar fila con cada columna
             for (int l = 0; l < 6; l++) {
                 if (s[i][l] == null) {
+                    s[i][l] = "   ";
                     fila += "|     ";
                 }else {
                     fila += "| " + s[i][l] + " ";
@@ -129,32 +132,28 @@ public class Servicio {
         cine.setSala(s);
     }
     
-    public boolean verificarSilla(char k, int i) {
-         int j = 0;
+    public boolean verificarSilla(Character k, int i) {
+        int j;
+        //string de comparación
+        String sillaElegida = "";
         
+        //obtener índice de la columna
         switch (k) {
-            case 'A':
-                j = 5;
-                break;
-            case 'B':
-                j = 4;
-                break;
-            case 'C':
-                j = 3;
-                break;
-            case 'D':
-                j = 2;
-                break;
-            case 'E':
-                j = 1;
-                break;
-            case 'F':
-                j = 0;
-                break;
-            default:
+            case 'A' | 'a' -> j = 0;
+            case 'B' | 'b' -> j = 1;
+            case 'C' | 'c' -> j = 2;
+            case 'D' | 'd' -> j = 3;
+            case 'E' | 'e' -> j = 4;
+            case 'F' | 'f' -> j = 5;
+            default -> {
                 return true;
+            }
         }
-        if (cine.getElementSala(i-1, j).equalsIgnoreCase((k)+(i)+"X")) {
+        
+        sillaElegida = k.toString() + i + "X";
+        sillaElegida = sillaElegida.toUpperCase();
+
+        if (cine.getElementSala((i - 1), j).equalsIgnoreCase((sillaElegida))) {
             System.out.println("La silla no esta disponible.");
             return true;
         } else {
@@ -184,14 +183,14 @@ public class Servicio {
             silla.toUpperCase();
 
             k = silla.charAt(0);
-            i = (int)silla.charAt(1);
+            i = Integer.parseInt(String.valueOf(silla.charAt(1)));
             
         } while (verificarSilla(k, i));
         
         if (espectador.getDinero() >= cine.getPrecio() && espectador.getEdad() > cine.getPelicula().getEdadMin()) {
             System.out.println("Gracias por su compra, disfrute su película");
         }else if (espectador.getEdad() < cine.getPelicula().getEdadMin()) {
-            System.out.println("Lamentablemente, no tiene la esas suficiente para ver esta película");
+            System.out.println("Lamentablemente, no tiene la edad suficiente para ver esta película");
         }else {
             System.out.println("Lamentablemente, no le alcanza");
         }

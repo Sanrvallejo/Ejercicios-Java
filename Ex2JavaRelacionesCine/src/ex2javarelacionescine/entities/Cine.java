@@ -11,7 +11,7 @@ public class Cine {
 
     public Cine(Pelicula pelicula, double precio) {
         this.pelicula = pelicula;
-        sala = new String[6][8];
+        sala = new String[8][6];
         this.precio = precio;
     }
 
